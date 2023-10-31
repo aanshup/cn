@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+void bit(int N, int a[]){
+    int b[30];
+    int i=0,j=0,k;
+    int count;
+    
+    while(i<N){
+        if(a[i]==1){
+            count = 1;
+            b[j] = a[i];
+            
+            for(k=i+1; a[k]==1 && k<N && count<5; k++){
+                j++;
+                b[j] = a[k];
+                count++;
+                
+                if(count == 5){
+                    j++;
+                    b[j]=0;
+                }
+                i=k;
+            }
+        }
+        
+        else{
+            b[j]=a[i];
+        }
+        i++;
+        j++;
+    }
+    
+    for(i=0;i<=j;i++){
+        printf("%d", b[i]);
+    }
+}
+int main() {
+     int N = 6;
+    int arr1[] = { 1, 1, 1, 1, 1, 1 };
+    int arr2[] = { 0, 1, 1, 0, 1, 1 };
+
+    printf("for Array 1: ");
+    bitStuffing(N, arr1);
+
+    printf("\n");
+    
+    printf("\nfor Array 2: ");
+    bitStuffing(N, arr2);
+
+    return 0;
+}

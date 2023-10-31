@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+
+int cal(char b[]){
+    int count=0;
+    
+    for(int i=0; i<strlen(b);i++){
+        if(b[i]=='1'){
+            count++;
+        }
+    }
+    
+    return (count % 2 == 0) ? 0 : 1;
+}
+
+int main(){
+    char binput[100];
+    printf("Enter Binary Number: ");
+    scanf("%s", binput);
+    
+    int isValid = 1;
+    
+    for(int i=0;i<strlen(binput);i++){
+        if(binput[i]!='0' && binput[i]!='1'){
+            isValid = 0;
+            break;
+        }
+    }
+    
+    if(!isValid){
+        printf("Invalid");
+    }
+    
+    int pbit = cal(binput);
+    
+    printf("Pariy Bit: %d \n", pbit);
+    return 0;
+}

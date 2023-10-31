@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+    char fr[50][50], str[50][50];
+    
+    char flag[10];
+    strcpy(flag, "flag");
+    
+    char esc[10];
+    strcpy(esc,"esc");
+    
+    int i,j,k=0,n;
+    
+    strcpy(fr[k++], "flag");
+    
+    printf("enter length of string: ");
+    scanf("%d", &n);
+    
+    printf("enter the string");
+    for(i=0;i<=n;i++){
+        gets(str[i]);
+    }
+    
+    printf("\n you entered: ");
+    for(i=0;i<=n;i++){
+        puts(str[i]);
+    }
+    
+    for(i=1;i<=n;i++){
+            if(strcmp(str[i],flag)!=0 && strcmp(str[i],esc)!=0 ){
+        strcpy(fr[k++], str[i]);
+    }
+    
+    else{
+        strcpy(fr[k++], "ese");
+        strcpy(fr[k++], str[i]);
+    }
+    }
+    
+    strcpy(fr[k++],"flag");
+    
+    printf("Sender Side: ");
+    for(i=0;i<=k;i++){
+        printf("%s \t", fr[i]);
+    }
+    return 0;
+}
